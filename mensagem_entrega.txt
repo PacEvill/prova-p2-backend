@@ -1,0 +1,23 @@
+Olá, professor!
+
+Segue o link do repositório da minha Atividade Avaliativa - P2, contendo a implementação da API de Catálogo de Produtos e a suíte completa de testes de integração automatizados:
+
+Repositório GitHub: https://github.com/PacEvill/prova-p2-backend
+
+Destaques da Implementação:
+
+* Desenvolvimento da API: REST completo com FastAPI, persistência e modelagem com SQLAlchemy ORM e validações robustas de payload de entrada (nome obrigatório/não vazio, preço maior que zero e estoque maior ou igual a zero) utilizando Pydantic v2.
+* Infraestrutura em Docker: Orquestração via Docker Compose contendo dois ambientes independentes do PostgreSQL com healthchecks configurados (um banco persistente para desenvolvimento na porta 5432 e um banco volátil/descartável exclusivo para testes na porta 5433).
+* Suíte de Testes Automatizados (Pytest): Implementação de 18 cenários de testes (superando o mínimo de 10 exigidos), cobrindo:
+  - Fluxos principais de CRUD (criação, listagem, busca por ID e exclusão).
+  - Tratamento de erros de registros não encontrados (404 Not Found).
+  - Validações parametrizadas (@pytest.mark.parametrize) de payloads inválidos e tipos incorretos (422 Unprocessable Entity).
+  - Cobertura de 95% de linhas de código no módulo principal (main.py).
+* Isolamento de Estado: Configuração de fixtures com yield (conftest.py) executando a criação e destruição do esquema (create_all/drop_all) a cada função de teste, garantindo atomicidade e independência absoluta entre as execuções, sem ocorrência de concorrência ou deadlocks de transações no PostgreSQL.
+
+O projeto conta com um Dockerfile pronto para deploy e um README.md detalhado contendo os passos de execução do Docker, comandos de teste, explicação técnica do isolamento do banco de dados e o relatório de saída do Pytest documentado.
+
+Qualquer dúvida, estou à disposição!
+
+Atenciosamente,
+Diego Silva
